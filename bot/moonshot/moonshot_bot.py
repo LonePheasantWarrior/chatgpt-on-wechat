@@ -104,8 +104,8 @@ class MoonshotBot(Bot):
             if res.status_code == 200:
                 response = res.json()
                 return {
-                    "total_tokens": response["usage"]["total_tokens"],
-                    "completion_tokens": response["usage"]["completion_tokens"],
+                    "total_tokens": response["bot_usage"]["model_usage"][0]["total_tokens"],
+                    "completion_tokens": response["bot_usage"]["model_usage"][0]["completion_tokens"],
                     "content": response["choices"][0]["message"]["content"]
                 }
             else:
